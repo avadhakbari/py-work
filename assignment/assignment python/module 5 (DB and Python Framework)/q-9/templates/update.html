@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+</head>
+<body>
+    <h1>Edit Product</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td><label for="price">Product Price</label></td>
+                <td><input type="text" id="price" name="price" value="{{ product.product_price }}"></td>
+            </tr>
+            <tr>
+                <td><label for="img">Image</label></td>
+                <td><input type="file" id="img" name="img"></td>
+            </tr>
+            <tr>
+                <td><label for="model">Model</label></td>
+                <td>
+                    <select name="model" id="model">
+                        <option value="i3" {% if product.product_model == 'i3' %}selected{% endif %}>i3</option>
+                        <option value="i5" {% if product.product_model == 'i5' %}selected{% endif %}>i5</option>
+                        <option value="i7" {% if product.product_model == 'i7' %}selected{% endif %}>i7</option>
+                        <option value="i9" {% if product.product_model == 'i9' %}selected{% endif %}>i9</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="ram">RAM</label></td>
+                <td>
+                    <select name="ram" id="ram">
+                        <option value="4gb" {% if product.product_ram == '4gb' %}selected{% endif %}>4GB</option>
+                        <option value="8gb" {% if product.product_ram == '8gb' %}selected{% endif %}>8GB</option>
+                        <option value="16gb" {% if product.product_ram == '16gb' %}selected{% endif %}>16GB</option>
+                        <option value="32gb" {% if product.product_ram == '32gb' %}selected{% endif %}>32GB</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+               
